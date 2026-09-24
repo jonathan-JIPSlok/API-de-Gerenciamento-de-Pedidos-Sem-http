@@ -8,11 +8,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class PedidoResponse {
-    private long id;
-    private Cliente cliente;
+    private final long id;
+    private final Cliente cliente;
     private final ArrayList<Produto> produtos = new ArrayList<>();
-    private BigDecimal total;
-    private StatusPedido status;
+    private final BigDecimal total;
+    private final StatusPedido status;
 
     public PedidoResponse(Long id, Cliente cliente, ArrayList<Produto> produtos, BigDecimal total, StatusPedido status) {
         this.id = id;

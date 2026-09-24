@@ -3,9 +3,9 @@ package main.java.com.loja.dto;
 import java.math.BigDecimal;
 
 public class CriarProdutoRequest {
-    private String nome;
-    private BigDecimal preco;
-    private int estoque;
+    private final String nome;
+    private final BigDecimal preco;
+    private final int estoque;
 
     public CriarProdutoRequest(String nome, BigDecimal preco, int estoque) {
         this.nome = nome;

@@ -2,8 +2,8 @@ package main.java.com.loja.dto;
 
 public class ClienteResponse {
     private Long id;
-    private String nome;
-    private String email;
+    private final String nome;
+    private final String email;
 
     public ClienteResponse(Long id, String nome, String email) {
         this.id = id;
@@ -19,5 +19,8 @@ public class ClienteResponse {
     }
     public String getNome() {
         return nome;
+    }
+    public String getEmail() {
+        return email;
     }
 }

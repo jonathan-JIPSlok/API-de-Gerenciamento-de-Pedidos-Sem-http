@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class ProdutoService {
 
-    private ProdutoRepository produtoRepository = new ProdutoRepository();
+    private final ProdutoRepository produtoRepository = new ProdutoRepository();
 
     public ProdutoResponse cadastrar (CriarProdutoRequest request) {
         Produto produto = new Produto(
@@ -18,6 +18,12 @@ public class ProdutoService {
                 request.getEstoque()
         );
 
-        return produtoRepository.salvar(produto);
+        produtoRepository.salvar(produto);
+        return new ProdutoResponse(
+                produto.getId(),
+                produto.getNome(),
+                produto.getPreco(),
+                produto.getEstoque()
+        );
     }
 }

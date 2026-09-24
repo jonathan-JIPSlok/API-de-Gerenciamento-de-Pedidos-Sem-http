@@ -13,13 +13,13 @@ public class Produto {
         this.id = new Random().nextLong();
         setNome(nome);
         setPreco(preco);
-        addEstoque(estoque);
+        adicionarEstoque(estoque);
     }
     public Produto(Long id, String nome, BigDecimal preco, int estoque) {
         this.id = id;
         setNome(nome);
         setPreco(preco);
-        addEstoque(estoque);
+        adicionarEstoque(estoque);
     }
 
     public void setNome(String nome) {
@@ -30,13 +30,13 @@ public class Produto {
     }
 
     public void setPreco(BigDecimal preco) {
-        if (preco == null || preco.doubleValue() < 0) {
+        if (preco == null || preco.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Preco deve ser maior do que zero");
         }
         this.preco = preco;
     }
 
-    public void addEstoque(int quantidade) {
+    public void adicionarEstoque(int quantidade) {
         if (quantidade < 0) {
             throw new IllegalArgumentException("Quantidade deve ser maior que zero");
         }
@@ -61,12 +61,5 @@ public class Produto {
     public String getNome() {return this.nome;}
 
     public int getEstoque() {return this.estoque;}
-
-    public void adicionarEstoque(int estoque) {
-        if (estoque < 0) {
-            throw new IllegalArgumentException("Quantidade deve ser maior que zero");
-        }
-        this.estoque = estoque;
-    }
 
 }

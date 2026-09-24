@@ -3,10 +3,10 @@ package main.java.com.loja.dto;
 import java.math.BigDecimal;
 
 public class ProdutoResponse {
-    private Long id;
-    private String nome;
-    private BigDecimal preco;
-    private int estoque;
+    private final Long id;
+    private final String nome;
+    private final BigDecimal preco;
+    private final int estoque;
 
     public ProdutoResponse(Long id, String nome, BigDecimal preco, int estoque) {
         this.id = id;

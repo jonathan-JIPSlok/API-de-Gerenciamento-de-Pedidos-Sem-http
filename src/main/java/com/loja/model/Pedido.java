@@ -7,20 +7,20 @@ import java.util.Random;
 
 public class Pedido {
     private final Long id;
-    private Cliente cliente;
-    private ArrayList<Produto> produtos = new ArrayList<>();
+    private final Cliente cliente;
+    private final ArrayList<Produto> produtos = new ArrayList<>();
     private StatusPedido status;
 
     public Pedido(Cliente cliente, List<Produto> produtos) {
         this.id = new Random().nextLong();
         this.cliente =  cliente;
-        this.produtos.addAll(produtos);
+        produtos.forEach(this::adicionarProduto);
         this.status = StatusPedido.CRIADO;
 
     }
 
-    public void adicionarProdutos(List<Produto> produtos) {
-        this.produtos.addAll(produtos);
+    public void adicionarProduto(Produto produto) {
+        this.produtos.add(produto);
     }
 
     public void removerProduto(Produto produto) {
@@ -43,7 +43,7 @@ public class Pedido {
         return id;
     }
     public ArrayList<Produto> getProdutos() {
-        return produtos;
+        return new ArrayList<>(this.produtos);
     }
     public StatusPedido getStatus() {
         return status;
